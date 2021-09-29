@@ -1,0 +1,1 @@
+# Tugas_Pertemuan_6-Operasi_Geometri_Citra
