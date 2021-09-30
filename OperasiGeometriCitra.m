@@ -104,18 +104,31 @@ title('NOT A')
 subplot(2,3,5), imshow(notB);
 title('NOT B')
 
-%Operasi Penskalaan
-[p l]= size(gray_a);
+%Operasi Penskalaan 1
+citra=imread('NuranisaRamli.jpg');
+scale = rgb2gray(citra);
+[m,n]=size(scale);
+skala=1.5;
+
+for x=2:m
+    for y=2:n
+        hasil3(round (skala*(x-1)-1),round(skala*(y-1)))=scale(x-1,y-1);
+    end
+end
+
+%Operasi Penskalaan 2
+[p l]= size(gray_b);
 geserx=10;
 gesery=20;
 for i = 1:p
     for j = 1:l
-        scale(2*i,2*j)=gray_a(i,j);
+        hasil(2*i,2*j)=gray_b(i,j);
     end
 end
 figure(6)
-subplot(1,2,1), imshow(gray_a); title('Citra Keabuan')
-subplot(1,2,2), imshow(scale); title('Hasil Penskalaan')
+subplot(1,3,1), imshow(gray_a); title('Citra Keabuan')
+subplot(1,3,2), imshow(scale); title('Hasil Penskalaan 1')
+subplot (1,3,3), imshow(hasil);title('Hasil Penskalaan 2')
 
 %Operasi Refleksi
 hor_1 = fliplr(gray_a);
